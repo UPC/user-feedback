@@ -17,7 +17,7 @@ Aquesta operació afegeix una nova valoració a un servei.
   * **Code** 201
   * **Content** `{ id : 12, service: "#1234", rate: "1", timestamp: "1488984558" }`
 * **Error Response:**
-  * **Code** 401 _(HTTP not found)_
+  * **Code** 401 _(Unauthorized)_
   * **Content** `{ error : "App key unauthorized" }`
 
 ## Llicència ##
