@@ -2,23 +2,56 @@
 
 ## API-Rest (v1) ##
 
-### Afegir una valoració ###
+### Afegir una nova unitat ###
 
-Aquesta operació afegeix una nova valoració a un servei.
+* **URL** `/api/v1/unit`
+* **Method** `POST`
+* **Success response:**
+  * **Code** 201
+  * **Content** `{ id : "9548d3575165" }`
 
-* **URL** `/api/v1/service/:service/rate`
+### Afegir una nova valoració a un servei ###
+
+* **URL** `/api/v1/unit/:unit/service/:service/rate`
 * **Method** `POST`
 * **URL parameters**
-  * `service=[string]` _required_
+  * `unit=[string]`
+  * `service=[string]`
 * **Data parameters**
   * `rate=[string]` _required_
-  * `app_key=[string]` _required_
-* **Success Response:**
+* **Success response:**
   * **Code** 201
-  * **Content** `{ id : 12, service: "#1234", rate: "1", timestamp: "1488984558" }`
-* **Error Response:**
-  * **Code** 401 _(Unauthorized)_
-  * **Content** `{ error : "App key unauthorized" }`
+  * **Content** `{ id : "75e817cecc8e", service: "dhcp", rate: "1", timestamp: 1488984558 }`
+* **Not found response:**
+  * **Code** 404
+  * **Content** `{ error : "Service not found" }`
+
+### Obtenir les valoracions d'un servei ###
+
+  * **URL** `/api/v1/unit/:unit/service/:service/rate`
+  * **Method** `GET`
+  * **URL parameters**
+    * `unit=[string]`
+    * `service=[string]`
+  * **Success response:**
+    * **Code** 200
+    * **Content** `[{ rate : "1", count: 15 }, { rate: "2", count: 7 }, { rate: "3", count: 1 }]`
+  * **Not found response:**
+    * **Code** 404
+    * **Content** `{ error : "Service not found" }`
+
+### Obtenir tots els serveisd'una unitat ###
+
+  * **URL** `/api/v1/unit/:unit/service`
+  * **Method** `GET`
+  * **URL parameters**
+    * `unit=[string]`
+  * **Success response:**
+    * **Code** 200
+    * **Content** `[{ service: "dhcp" }, { service: "web" }]`
+  * **Not found response:**
+    * **Code** 404
+    * **Content** `{ error : "Unit not found" }`
 
 ## Llicència ##
 
