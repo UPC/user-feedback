@@ -40,7 +40,7 @@
     * **Code** 404
     * **Content** `{ error : "Service not found" }`
 
-### Obtenir tots els serveisd'una unitat ###
+### Obtenir tots els serveis d'una unitat ###
 
   * **URL** `/api/v1/unit/:unit/service`
   * **Method** `GET`
